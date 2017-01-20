@@ -23,6 +23,6 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker tag games ilyshavasin/games:latest;
-    docker push games;
+    docker tag games-front ilyavasin/games-front;
+    docker push ilyavasin/games-front;
     fi
