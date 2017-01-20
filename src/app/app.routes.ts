@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
-import { GamesComponent } from './games'
+import { GamesComponent } from './games';
 
 import { DataResolver } from './app.resolver';
 
