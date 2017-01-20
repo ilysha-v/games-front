@@ -9,10 +9,6 @@ exports.config = {
   baseUrl: 'http://localhost:3000/',
 
   // use `npm run e2e`
-  specs: [
-    helpers.root('src/**/**.e2e.ts'),
-    helpers.root('src/**/*.e2e.ts')
-  ],
   exclude: [],
 
   framework: 'jasmine2',
