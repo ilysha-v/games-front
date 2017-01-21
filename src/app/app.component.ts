@@ -6,7 +6,8 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { AppState } from './app.service';
+
+import './rxjs-operators';
 
 /*
  * App Component
@@ -41,14 +42,12 @@ import { AppState } from './app.service';
   `
 })
 export class AppComponent implements OnInit {
-  public name = 'Angular 2 Webpack Starter';
+  public name = 'Games service';
 
   constructor(
-    public appState: AppState
   ) {}
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
   }
 
 }
