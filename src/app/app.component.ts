@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import './rxjs-operators';
+import {BackendService} from './backend.service'
 
 /*
  * App Component
@@ -19,8 +20,13 @@ import './rxjs-operators';
   styleUrls: [
     './app.component.css'
   ],
+  providers: [
+    BackendService
+  ],
   template: `
-    <nav>
+    <div width='100%'>
+    <div width='auto' align='left'>
+        <nav>
       <a [routerLink]=" ['./'] " routerLinkActive="active">
         Index
       </a>
@@ -30,11 +36,25 @@ import './rxjs-operators';
       <a [routerLink]=" ['./games'] " routerLinkActive="active">
         Games list
       </a>
-      <a [routerLink]=" ['./detail'] " routerLinkActive="active">
-        Detail
-      </a>
 
+      <a *ngIf="!userInfo?.Email" [routerLink]=" ['./register'] " routerLinkActive="active">
+        Registration
+      </a>
+      <a *ngIf="!userInfo?.Email" [routerLink]=" ['./login'] " routerLinkActive="active">
+        Log in
+      </a>
     </nav>
+    </div>
+
+    <div align='right'>
+      <div *ngIf="userInfo?.Email">
+      <b>Hey, {{userInfo.Email}}</b>
+      </div>
+      <a *ngIf="userInfo?.Email" href="/api/auth/logout">
+        Log out
+      </a>
+    </div>
+
 
     <main>
       <router-outlet></router-outlet>
@@ -43,11 +63,19 @@ import './rxjs-operators';
 })
 export class AppComponent implements OnInit {
   public name = 'Games service';
+  userInfo;
 
-  constructor(
+  constructor(private backendService: BackendService
   ) {}
 
   public ngOnInit() {
+      this.loadUserInfo();
+  }
+
+  public loadUserInfo(){
+      this.backendService.getUserInfo().subscribe(user => {
+          this.userInfo = user;
+      });
   }
 
 }

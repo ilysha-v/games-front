@@ -23,10 +23,12 @@ import { ROUTES } from './app.routes';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { HomeComponent } from './home';
-import { GamesComponent } from './games';
+import { HomeComponent } from './components/home';
+import { GamesComponent } from './components/games';
+import { RegistrationComponent } from './components/registration'
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+import { LoginComponent } from './components/login';
+import { XLargeDirective } from './components/home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -50,6 +52,8 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     GamesComponent,
+    LoginComponent,
+    RegistrationComponent,
     NoContentComponent,
     XLargeDirective
   ],

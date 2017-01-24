@@ -5,8 +5,8 @@ import {
 
 import { AppState } from '../app.service';
 import { XLargeDirective } from './x-large';
-import { BackendService } from '../backend.service'
-import { GameShortInfo } from '../model/gameShortInfo'
+import { BackendService } from '../../backend.service'
+import { GameShortInfo } from '../../model/gameShortInfo'
 
 @Component({
   selector: 'games',

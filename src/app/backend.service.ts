@@ -1,6 +1,7 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { GameShortInfo }  from './model/gameShortInfo';
+import { UserInfo } from './model/userInfo'
 import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
@@ -9,15 +10,42 @@ export class BackendService {
   private allGamesUrl = 'api/games';  // URL to web API
 
   constructor (private http: Http) {}
+
   getAllGames (): Observable<GameShortInfo[]> {
     return this.http.get(this.allGamesUrl)
-                    .map(this.extractData)
+                    .map(this.extractJsonData)
                     .catch(this.handleError);
   }
 
-  private extractData(res: Response) {
+  getRegistrationForm (): Observable<string>{
+    let url = 'api/auth/register';
+    return this.http.get(url)
+                    .map(this.extractTextData)
+                    .catch(this.handleError);
+  }
+
+  getAuthForm (): Observable<string>{
+    let url = 'api/auth/login';
+    return this.http.get(url)
+                    .map(this.extractTextData)
+                    .catch(this.handleError);
+  }
+
+  getUserInfo(): Observable<UserInfo>{
+    let url = 'api/userinfo';
+    return this.http.get(url)
+                    .map(this.extractJsonData)
+                    .catch(this.handleError);
+  }
+
+  private extractJsonData(res: Response) {
     let body = res.json();
     return body || { };
+  }
+
+  private extractTextData(res: Response) {
+    let body = res._body;
+    return body;
   }
 
   private handleError (error: Response | any) {
