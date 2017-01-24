@@ -44,7 +44,7 @@ export class BackendService {
   }
 
   private extractTextData(res: Response) {
-    let body = res._body;
+    let body = res.text();
     return body;
   }
 
