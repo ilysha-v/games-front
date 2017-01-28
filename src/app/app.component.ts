@@ -17,42 +17,44 @@ import {BackendService} from './backend.service'
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
   providers: [
     BackendService
   ],
   template: `
-    <div width='100%'>
-    <div width='auto' align='left'>
-        <nav>
-      <a [routerLink]=" ['./'] " routerLinkActive="active">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] " routerLinkActive="active">
-        Home
-      </a>
-      <a [routerLink]=" ['./games'] " routerLinkActive="active">
-        Games list
-      </a>
+        <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><a [routerLink]=" ['./home'] " routerLinkActive="active">Home</a></li>
+              <li><a [routerLink]=" ['./games'] " routerLinkActive="active">Games list</a></li>
+            </ul>
 
-      <a *ngIf="!userInfo?.Email" [routerLink]=" ['./register'] " routerLinkActive="active">
-        Registration
-      </a>
-      <a *ngIf="!userInfo?.Email" [routerLink]=" ['./login'] " routerLinkActive="active">
-        Log in
-      </a>
-    </nav>
-    </div>
+            <ul class="right" *ngIf="!userInfo?.Email">
+              <li>
+                <a [routerLink]=" ['./register'] " routerLinkActive="active">
+                  Sign up
+                </a>
+              </li>
+              <li>
+                <a [routerLink]=" ['./login'] " routerLinkActive="active">
+                  Sign in
+                </a>
+              </li>
+            </ul>
+
+            <ul class="right" *ngIf="userInfo?.Email">
+              <b>Hey, {{userInfo.Email}}</b>
+              <a href="/api/auth/logout">
+                Log out
+              </a>
+            </ul>
+          </div>
+        </nav>
 
     <div align='right'>
       <div *ngIf="userInfo?.Email">
       <b>Hey, {{userInfo.Email}}</b>
       </div>
-      <a *ngIf="userInfo?.Email" href="/api/auth/logout">
-        Log out
-      </a>
+
     </div>
 
 
