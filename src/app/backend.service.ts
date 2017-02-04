@@ -1,4 +1,5 @@
 import { Injectable }     from '@angular/core';
+import { Headers, RequestOptions } from '@angular/http';
 import { Http, Response } from '@angular/http';
 import { GameShortInfo }  from './model/gameShortInfo';
 import { UserInfo } from './model/userInfo'
@@ -37,6 +38,15 @@ export class BackendService {
                     .map(this.extractJsonData)
                     .catch(this.handleError);
   }
+
+  updateUserInfo(info: UserInfo): Observable<Response>{
+    let url = 'api/userinfo';
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(url, info);
+  }
+
 
   private extractJsonData(res: Response) {
     let body = res.json();

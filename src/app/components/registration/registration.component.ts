@@ -15,8 +15,9 @@ import { BackendService } from '../../backend.service'
 
   template: `
   <h1>Registration form</h1>
-  <hr />
-  <div [innerHTML]="formHtml"></div>
+  <div class="row">
+    <div [innerHTML]="formHtml" class="col s6"></div>
+  </div>
   `,
 })
 

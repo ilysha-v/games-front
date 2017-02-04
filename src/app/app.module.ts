@@ -26,6 +26,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { HomeComponent } from './components/home';
 import { GamesComponent } from './components/games';
 import { RegistrationComponent } from './components/registration'
+import { UserProfileComponent } from './components/userProfile'
 import { NoContentComponent } from './no-content';
 import { LoginComponent } from './components/login';
 import { XLargeDirective } from './components/home/x-large';
@@ -54,6 +55,7 @@ type StoreType = {
     GamesComponent,
     LoginComponent,
     RegistrationComponent,
+    UserProfileComponent,
     NoContentComponent,
     XLargeDirective
   ],
@@ -61,7 +63,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

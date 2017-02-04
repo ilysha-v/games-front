@@ -17,8 +17,9 @@ import { GameShortInfo } from '../../model/gameShortInfo'
 
   template: `
   <h1>Auth form</h1>
-  <hr />
-  <div [innerHTML]="formHtml"></div>
+  <div class="row">
+    <div [innerHTML]="formHtml" class="col s6"></div>
+  </div>
   `,
 })
 

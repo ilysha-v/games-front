@@ -42,25 +42,21 @@ import {BackendService} from './backend.service'
             </ul>
 
             <ul class="right" *ngIf="userInfo?.Email">
-              <b>Hey, {{userInfo.Email}}</b>
-              <a href="/api/auth/logout">
-                Log out
-              </a>
+              <li>
+                <a [routerLink]=" ['./profile'] " routerLinkActive="active">
+                  Hey, {{userInfo.Email}}
+                </a>
+              </li>
+              <li><a href="/api/auth/logout">Log out</a></li>
             </ul>
           </div>
         </nav>
 
-    <div align='right'>
-      <div *ngIf="userInfo?.Email">
-      <b>Hey, {{userInfo.Email}}</b>
-      </div>
-
+    <div class="container">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
     </div>
-
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
   `
 })
 export class AppComponent implements OnInit {
