@@ -9,7 +9,7 @@ import { UserProfileComponent } from './components/userProfile'
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
+  { path: '/',      component: HomeComponent },
   { path: 'games',  component: GamesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
