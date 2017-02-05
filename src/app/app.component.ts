@@ -24,7 +24,7 @@ import {BackendService} from './backend.service'
         <nav class="light-blue lighten-1" role="navigation">
           <div class="nav-wrapper">
             <ul class="left">
-              <li><a [routerLink]=" ['./home'] " routerLinkActive="active">Home</a></li>
+              <li><a [routerLink]=" ['./'] " routerLinkActive="active">Home</a></li>
               <li><a [routerLink]=" ['./games'] " routerLinkActive="active">Games list</a></li>
             </ul>
 
